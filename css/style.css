@@ -1,0 +1,13 @@
+body{
+    background-color: #4C90A5;
+    overflow: hidden;
+}
+.center_align{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+.img{
+    text-align: center;
+    margin-top: 50px;
+}
