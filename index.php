@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-sm-6">
-            <a href="register.php">
+            <a href="registration.php">
                 <input  type="button" class="btn btn-info pull-left" value="Register">
             </a>
         </div>
