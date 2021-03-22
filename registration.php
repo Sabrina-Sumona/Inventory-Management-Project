@@ -1,4 +1,31 @@
 <?php
+    include 'authentication/connection.php';
+    $conn= connect();
+    // closeConnect($conn);
+    // m is the message
+    $m='';
+    // _POST is a built-in global variable of php
+    if(isset($_POST['submit'])){
+       $name= $_POST['name'];
+       $uname= $_POST['uname'];
+       // if there is no email it takes an empty string as input
+       $email= $_POST['email']?$_POST['email']:'';
+       $pass= $_POST['password'];
+       $rPass= $_POST['rpassword'];
+       // === checks both value & type of both sides matches or not
+       if($pass===$rPass){
+           $sq= "INSERT INTO users_info(name, u_name, email, password) VALUES('$name', '$uname', '$email', '$pass')";
+           if($conn->query($sq)===true){
+               header('Location: login.php');
+           }
+           else{
+               $m='Connection not established!';
+           }
+       }
+       else {
+           $m= "Passwords don't match!";
+       }
+    }
 ?>
 <html>
     <head>
@@ -13,9 +40,19 @@
 
     
     <body>
-        <form method="POST" action="register.php" enctype="multiport/form-data">
+    <!-- The GET method is used to submit the HTML form data. This data is collected by the predefined $_GET variable for processing. -->
+    <!-- The information sent from an HTML form using the GET method is visible to everyone in the browser's address bar, which means that all the variable names and their values will be displayed in the URL. Therefore, the get method is not secured to send sensitive information. -->
+    <!-- Similar to the GET method, the POST method is also used to submit the HTML form data. But the data submitted by this method is collected by the predefined superglobal variable $_POST instead of $_GET. -->
+    <!-- Unlike the GET method, it does not have a limit on the amount of information to be sent. The information sent from an HTML form using the POST method is not visible to anyone. -->
+        <form method="POST" action="registration.php" enctype="multiport/form-data">
             <div class="container">
-                <!-- <span><?php if($m!='') echo $m; ?></span> -->
+                <!-- message -->
+                <span>
+                    <?php 
+                        if($m!='') 
+                            echo $m; 
+                    ?>
+                </span>
                 <h1>Registration Form</h1>
                 <hr>
                 <div>
