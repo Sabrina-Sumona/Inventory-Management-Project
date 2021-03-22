@@ -28,6 +28,7 @@
             <div class="box bg-img">
                 <div class="content">
                         <h2>Log<span> In</span></h2>
+                        <hr>
                     <div class="forms">
                         <p style="color: red; padding: 20px;">
                             <?php 
