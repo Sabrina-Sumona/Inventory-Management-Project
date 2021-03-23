@@ -4,7 +4,7 @@
         // here mysql port is 3306
         $dbHost = "localhost:3306";
         $user= "root";
-        $pass= "";
+        $pass= "sns963147";
         $dbname="inventory_project";
 
         $conn= new mysqli($dbHost, $user, $pass, $dbname);

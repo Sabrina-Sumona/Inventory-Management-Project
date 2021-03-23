@@ -27,11 +27,11 @@
         <form method="POST">
             <div class="box bg-img">
                 <div class="content">
-                        <h2>Log<span> In</span></h2>
-                        <hr>
+                    <h2>Log<span> In</span></h2>
+                    <hr>
                     <div class="forms">
                         <p style="color: red; padding: 20px;">
-                            <?php 
+                                <?php 
                                 if($m!='') 
                                     echo $m; 
                             ?>
@@ -50,7 +50,7 @@
                     </div>
 
                     <button class="login-btn" type="submit" name="submit">Sign In</button>
-                    <p class="new-account">Not a user? <a href="register.php">Sign Up now!</a></p>
+                    <p class="new-account">Not a user? <a href="registration.php">Sign Up now!</a></p>
                     <br>
 
                     <p class="f-pass">
