@@ -1,3 +1,8 @@
+body{
+    background-color: #4C90A5;
+    overflow: hidden;
+}
+
 .topnav {
     overflow: hidden;
     background-color: #333;
@@ -25,7 +30,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:#194588;
+    background-color:#102e5a;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -59,7 +64,7 @@ li:nth-last-child(1) {
 }
 
 .active {
-    background-color:#102e5a;
+    background-color:#095375;
     color: black;
 }
 
