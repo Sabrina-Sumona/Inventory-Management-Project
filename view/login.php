@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    $_SESSION['user']='';
+    $_SESSION['userid']='';
     include "../controller/connection.php";
     $conn= connect();
     $m= '';
@@ -9,6 +12,12 @@
         $res= $conn->query($sql);
 
         if(mysqli_num_rows($res)==1){
+            $user= mysqli_fetch_assoc($res);
+            $id= $user['id'];
+            $sq= "UPDATE users_info SET last_login_time=current_timestamp() WHERE id='$id'";
+            $conn->query($sq);
+            $_SESSION['user']= $user['name'];
+            $_SESSION['userid']= $user['id'];
             header('Location: ../model/dashboard.php');
         }
         else{
