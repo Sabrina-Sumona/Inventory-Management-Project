@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="../css/style.css">
     </head>
 
     <body scroll="no">
@@ -31,7 +31,7 @@
         </div>
         <br>
         <div class="img">
-            <img src="img/welcome.jpg" alt="welcome">
+            <img src="../img/welcome.jpg" alt="welcome">
         </div>
     </body>
 

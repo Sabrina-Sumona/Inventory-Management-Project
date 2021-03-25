@@ -1,5 +1,5 @@
 <?php
-    include "authentication/connection.php";
+    include "../controller/connection.php";
     $conn= connect();
     $m= '';
     if(isset($_POST['submit'])){
@@ -9,7 +9,7 @@
         $res= $conn->query($sql);
 
         if(mysqli_num_rows($res)==1){
-            header('Location: dashboard.php');
+            header('Location: ../model/dashboard.php');
         }
         else{
             $m= 'User name or password is not matched!';
@@ -18,7 +18,7 @@
 ?>
 <html>
     <head>
-        <link type="text/css" rel="stylesheet" href="css/login.css">
+        <link type="text/css" rel="stylesheet" href="../css/login.css">
     </head>
     <body>
         <div class="logo">
@@ -37,11 +37,11 @@
                             ?>
                         </p>
                         <div class="user-input">
-                            <input name="uname" type="text" class="login-input" placeholder="Username" id="name" required>
+                            <input name="uname" type="text" class="login-input" placeholder="Username" id="name" required/>
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="pass-input">
-                            <input name="password" type="password" class="login-input" placeholder="Password" id="my-password" required>
+                            <input name="password" type="password" class="login-input" placeholder="Password" id="my-password" required/ >
                             <span class="eye" onclick="myFunction()">
                               <i id="hide-1" class="fas fa-eye-slash"></i>
                               <i id="hide-2" class="fas fa-eye"></i>

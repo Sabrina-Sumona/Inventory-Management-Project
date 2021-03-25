@@ -1,5 +1,5 @@
 <?php
-    include 'authentication/connection.php';
+    include '../controller/connection.php';
     $conn= connect();
     // closeConnect($conn);
     // m is the message
@@ -35,7 +35,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="css/registration.css">
+        <link type="text/css" rel="stylesheet" href="../css/registration.css">
     </head>
 
     
