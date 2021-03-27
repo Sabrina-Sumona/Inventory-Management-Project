@@ -33,7 +33,7 @@
         <div class="logo">
 
         </div>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="box bg-img">
                 <div class="content">
                     <h2>Log<span> In</span></h2>
