@@ -3,6 +3,9 @@
     $user= $_SESSION['user'];
     $userid= $_SESSION['userid'];
 
+    $currentPage = 'product.php';
+    
+    include "navigation.php";
     include "../controller/connection.php";
 
     $m='';
@@ -53,22 +56,10 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/product.css">
+        <link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <title> Products </title>
     </head>
     <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-inverse">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav" style="color: white;">
-                    <li><a href="dashboard.php">MyInventory</a></li>
-                    <li><a class="active" href="product.php">Products</a></li>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li style="float: right;"><a href="logout.php" style="padding: 0px 20px 0px 0px;"><button class="btn btn-danger navbar-btn pull-right">Logout</button></a></li>
-                    <li class="pull-right"><a href="#">Logged in as <b class="user"><?php echo $user; ?></b></a></li>
-
-                </ul>
-            </div>
-        </nav>
         <div class="row" style="padding: 50px;">
             <div class="leftcolumn">
                 <div class="row">
@@ -104,7 +95,7 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProduct">
                             Add New Product
                         </button>
-                        <h2><?php echo $m; ?></h2>
+                        <h4 style="color: green"><?php echo $m; ?></h4>
                         <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">

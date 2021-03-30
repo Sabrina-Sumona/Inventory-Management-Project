@@ -1,0 +1,10 @@
+body{
+    background-color: #4C90A5;
+    margin:0;
+    background-image: none;
+    height:100%; 
+    overflow-x:hidden;
+}
+* {
+    box-sizing: border-box;
+}

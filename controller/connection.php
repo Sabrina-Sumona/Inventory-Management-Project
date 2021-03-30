@@ -3,7 +3,7 @@
         // $dbHost= "localhost";
         // here mysql port is 3306
         $dbHost = "localhost:3306";
-        $user= "root";
+        $user= "sabrina_sumona";
         $pass= "sns963147";
         $dbname="inventory_project";
 
@@ -12,7 +12,7 @@
         return $conn;
     }
 
-    function closeConnect($cn){
-        $cn->close();
-    }
+    // function closeConnect($cn){
+    //     $cn->close();
+    // }
 ?>

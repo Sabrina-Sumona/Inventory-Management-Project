@@ -3,9 +3,12 @@
     $user= $_SESSION['user'];
     $userid= $_SESSION['userid'];
 
-    include "../controller/connection.php";
+    $currentPage = 'product.php';
 
+    include "navigation.php";
+    include "../controller/connection.php";
     $conn= connect();
+
     $id= $_SESSION['userid'];
     $sq= "SELECT * FROM users_info WHERE id='$id'";
     $thisUser= mysqli_fetch_assoc($conn->query($sq));
@@ -39,22 +42,10 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/product.css">
+        <link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <title> Products </title>
     </head>
     <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-inverse">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav" style="color: white;">
-                    <li><a href="dashboard.php">MyInventory</a></li>
-                    <li><a class="active" href="product.php">Products</a></li>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li style="float: right;"><a href="logout.php" style="padding: 0px 20px 0px 0px;"><button class="btn btn-danger navbar-btn pull-right">Logout</button></a></li>
-                    <li class="pull-right"><a href="#">Logged in as <b class="user"><?php echo $user; ?></b></a></li>
-
-                </ul>
-            </div>
-        </nav>
         <div class="row" style="padding: 50px;">
             <div class="leftcolumn">
                 <div class="row">
@@ -93,7 +84,7 @@
                     <div class="row pt-20" >
                         <div class="row col-sm-6">
                             <div class="col-sm-6 p-20" >
-                                <img src="<?php echo $img; ?>" class="pull-left" height="300" width="300">
+                                <img src="<?php echo $img; ?>" class="pull-left" height="250" width="250">
                             </div>
                         </div>
                         <div class="col-sm-6" >

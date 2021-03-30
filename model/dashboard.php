@@ -3,7 +3,10 @@
     $user= $_SESSION['user'];
     $userid= $_SESSION['userid'];
 
+    $currentPage = 'dashboard.php';
     include "../controller/connection.php";
+    include "navigation.php";
+    
     $date= date('Y-m-d', strtotime('-7 days'));
     $conn = connect();
     
@@ -22,7 +25,7 @@
     $stock_available= $total_bought['total_bought']-$total_sold['total_sold'];
 
 ?>
-<!-- Welcome to Your Inventory System! -->
+
 <html>
 
     <head>
@@ -35,22 +38,10 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <title>Dashboard</title>
     </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-inverse">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav" style="color: white;">
-                    <li><a class="active" href="dashboard.php">MyInventory</a></li>
-                    <li><a href="product.php">Products</a></li>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li style="float: right;"><a href="logout.php" style="padding: 0px 20px 0px 0px;"><button class="btn btn-danger navbar-btn pull-right">Logout</button></a></li>
-                    <li class="pull-right"><a href="#">Logged in as <b class="user"><?php echo $user; ?></b></a></li>
-
-                </ul>
-            </div>
-        </nav>
 <div class="row" style="padding: 40px;">
     <div class="leftcolumn">
         <div class="row">
@@ -89,7 +80,6 @@
                         <thead class="thead-light">
                         <tr>
                             <th data-field="date" data-filter-control="select" data-sortable="true">Product Name</th>
-                            <th data-field="date" data-filter-control="select" data-sortable="true">Product Image</th>
                             <th data-field="examen" data-filter-control="select" data-sortable="true"> Bought</th>
                             <th data-field="note" data-sortable="true">Sold</th>
                             <th data-field="note" data-sortable="true">Available in Stock</th>
@@ -102,8 +92,6 @@
                                     $stock= $row['bought']-$row['sold'];
                                     echo "<tr>";
                                     echo "<td>".$row['name']."</td>";
-
-                                    echo "<td>".$row['image']."</td>";
 
                                     echo "<td>".$row['bought']."</td>";
 
