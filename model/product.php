@@ -45,6 +45,7 @@
     $sql= "SELECT SUM(sold) as total_sell from products";
     $total_sell= mysqli_fetch_assoc($conn->query($sql));
 ?>
+
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=10" >
@@ -59,6 +60,7 @@
         <link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <title> Products </title>
     </head>
+    
     <body>
         <div class="row" style="padding: 50px;">
             <div class="leftcolumn">
@@ -101,10 +103,10 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
 
-                                        <button style="background-color: #ffce00;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button style="background-color: white;" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        <h2 class="modal-title" id="exampleModalScrollableTitle">Add New Product</h2>
+                                        <h2 class="modal-title" id="exampleModalScrollableTitle" style="color: white;">Add New Product</h2>
                                     </div>
                                     <div class="modal-body">
                                         <form method="POST" action="product.php" enctype="multipart/form-data">

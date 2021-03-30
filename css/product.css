@@ -139,18 +139,17 @@ td{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #282828;
-    color: #d0d0d0;
+    background: #31B0D5;
+    color: white;
 }
 
 .modal-header{
-    background-color: #282828;
-    color: #ffce00;
+    background: #31B0D5;
     border-radius: 5px 5px 0px 0px ;
 }
 
 .modal-footer{
-    background-color: #282828;
+    background: #31B0D5;
     color: #ffce00;
     border-radius: 0px 0px 5px 5px ;
 }
@@ -159,23 +158,23 @@ td{
     position: relative;
 }
 .login-input {
-    color: white;
+    color: black;
     border-radius: 2px;
-    width: 240px;
+    width: 150px;
     height: 44px;
     border: none;
     padding: 15px 20px;
-    background-color: rgba(65, 65, 65, 0.5);
+    background-color: rgb(190, 240, 250);
     margin-bottom: 24px;
 }
 
 .login-input:focus {
     outline: none;
-    border-bottom: 2px solid #06ff8c;
+    border-bottom: 2px solid rgb(0, 162, 255);
 }
 
 .login-input:focus:invalid {
-    border-bottom: 2px solid #ffce00;
+    border-bottom: 2px solid #ff7b00;
 }
 
 .form-input {

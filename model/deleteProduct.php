@@ -2,41 +2,25 @@
     session_start();
 
     $currentPage = 'product.php';
-    
+
     include "navigation.php";
     include "../controller/connection.php";
+    $conn= connect();
 
-    $m='';
-    $conn=connect();
-
-    if(isset($_GET['id'])){
+   if(isset($_GET['id'])){
         $id= $_GET['id'];
-        $sql= "SELECT * from products WHERE id='$id' limit 1";
-        $res= mysqli_fetch_assoc($conn->query($sql));
-
-        $img= $res['image'];
-    }elseif(isset($_POST['id'])){
-        $id =$_POST['id'];
-        $pName= $_POST['pname'];
-        $buy= intval($_POST['buy']);
-        $sell= intval($_POST['sell']);
-
-        if($buy>=$sell){
-            if(isset($_POST['Submit'])){
-                $sql= "UPDATE products SET name= '$pName', bought= '$buy', sold= '$sell' WHERE id = '$id'";
-                if($conn->query($sql)===true){
-                    $m= "Field Updated!";
-                    header("Location: product.php");
-                } else{
-                    $m= "Connection Failure!";
-                    header("Location: editProduct.php?id=$id");
-                }
-            }
-        } else{
-            $m= "Buy quantity should be larger than Sell quantity!";
-            header("Location: editProduct.php?id=$id");
-        }
+    } elseif($_POST['Submit']){
+        $id= $_POST['id'];
+        $sql= "DELETE FROM products WHERE id='$id' limit 1";
+        $conn->query($sql);
+        header("Location: product.php");
     }
+
+
+    $sql= "SELECT * from products WHERE id=$id limit 1";
+    $res= mysqli_fetch_assoc($conn->query($sql));
+
+    $img= $res['image'];
 
     $sql= "SELECT COUNT(id) as total_products from products";
     $total_product= mysqli_fetch_assoc($conn->query($sql));
@@ -46,8 +30,8 @@
 
     $sql= "SELECT SUM(sold) as total_sell from products";
     $total_sell= mysqli_fetch_assoc($conn->query($sql));
-?>
 
+?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=10" >
@@ -97,8 +81,7 @@
             <div class="pt-20 pl-20">
                 <div class="col-sm-12" style="background-color: white; border: solid rgb(0, 162, 255);">
                     <div class="text-center">
-                        <h1 style="color:#130553;"> Edit Product</h1>
-                        <h4 style="color: red;"> <?php echo $m; ?> </h4>
+                        <h2 style="color:red;"> The product will be deleted!!!</h2>
                     </div>
                     <div class="row p-20" >
                         <div class="row col-sm-6">
@@ -106,34 +89,42 @@
                                 <img src="<?php echo $img; ?>" height="250" width="250">
                             </div>
                         </div>
-                        <form method="POST" action="editProduct.php" class="row">
-                            <div class="row col-sm-6">
-                                <h4 class="pull-left col-sm-6">Name:</h4>
-                                <div class="col-sm-6">
-                                    <h4  class="pull-left" style="color: black;"><input type="text" class="login-input"  name="pname" value="<?php echo $res['name']; ?>" placeholder="Product Name"></h4>
-                                </div>
+                        <div class="row col-sm-6">
+                            <h4 class="pull-left col-sm-6">Name:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo ucwords($res['name']) ?></h4>
                             </div>
-                            <div class="row col-sm-6">
-                                <h4 class="pull-left col-sm-6">Buy Quantity:</h4>
-                                <div class="col-sm-6">
-                                    <h4  class="pull-left" style="color: black;"><input type="text" class="login-input" name="buy" value="<?php echo $res['bought']; ?>" placeholder="Buy Quantity"></h4>
-                                </div>
+                        </div>
+                        <div class="row col-sm-6">
+                            <h4 class="pull-left col-sm-6">Buy Quantity:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo $res['bought'] ?></h4>
                             </div>
-                            <div class="row col-sm-6">
-                                <h4 class="pull-left col-sm-6">Sell Quantity:</h4>
-                                <div class="col-sm-6">
-                                    <h4  class="pull-left" style="color: black;"><input type="text" class="login-input" name="sell" value="<?php echo $res['sold']; ?>" placeholder="Sell Quantity"></h4>
-                                </div>
+                        </div>
+                        <div class="row col-sm-6">
+                            <h4 class="pull-left col-sm-6">Sell Quantity:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo $res['sold'] ?></h4>
                             </div>
-                            <input type="hidden" value="<?php echo $id; ?>" name="id">
-                            <div class="row col-sm-6 text-center" style="padding: 20px">
-                                <div class="col-sm-6">
-                                    <input class="btn btn-success" type="submit" name="Submit" value="Submit">
-                                </div>
+                        </div>
+                        <div class="row  col-sm-6">
+                            <h4 class="pull-left col-sm-6">Created at:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo date("F j, Y",strtotime(str_replace('-','/', $res['created_at'])))?></h4>
                             </div>
-                        </form>
-                    </div>                               
+                        </div>
+                        <div class="row col-sm-6 text-center" style="padding: 20px">
+                            <form method="POST" action="deleteProduct.php">
+                                <input type="hidden" value="<?php echo $res['id']; ?>" name="id">
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <input class="btn btn-danger" type="submit" name="Submit" value="Delete">
+                                    </div>
+                                </div>
+                        </form>                          
+                    </div>
                 </div>
+            </div>
         </div>
         <!-- <div class="col-sm-3">
             <div class="card  text-center" >

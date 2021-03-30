@@ -45,6 +45,7 @@
         <link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <title> Products </title>
     </head>
+
     <body>
         <div class="row" style="padding: 50px;">
             <div class="leftcolumn">
@@ -79,41 +80,46 @@
             <div class="pt-20 pl-20">
                 <div class="col-sm-12" style="background-color: white; border: solid rgb(0, 162, 255);">
                     <div class="text-center">
-                        <h1 style="color:#130553;"> Product Details</h2>
+                        <h1 style="color:#130553;"> Product Details</h1>
                     </div>
-                    <div class="row pt-20" >
+                    <div class="row p-20" >
                         <div class="row col-sm-6">
-                            <div class="col-sm-6 p-20" >
-                                <img src="<?php echo $img; ?>" class="pull-left" height="250" width="250">
+                            <div class="col-sm-6 p-20 pull-left" >
+                                <img src="<?php echo $img; ?>" height="250" width="250">
                             </div>
                         </div>
-                        <div class="col-sm-6" >
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h4 class="pull-right" style="color: black;"><h4 style="font-weight: bold;">Name</h4><?php echo ucwords($res['name']) ?></h4>
-                                </div>
+                        <div class="row col-sm-6">
+                            <h4 class="pull-left col-sm-6">Name:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo ucwords($res['name']) ?></h4>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h4 class="pull-right" style="color: black;"><h4 style="font-weight: bold;">Buy Quantity</h4><?php echo $res['bought'] ?></h4>
-                                </div>
+                        </div>
+                        <div class="row col-sm-6">
+                            <h4 class="pull-left col-sm-6">Buy Quantity:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo $res['bought'] ?></h4>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h4 class="pull-right" style="color: black;"><h4 style="font-weight: bold;">Sell Quantity</h4><?php echo $res['sold'] ?></h4>
-                                </div>
+                        </div>
+                        <div class="row col-sm-6">
+                            <h4 class="pull-left col-sm-6">Sell Quantity:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo $res['sold'] ?></h4>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h4 class="pull-right" style="color: black;"><h4 style="font-weight: bold;">Created at</h4><?php echo date('F j, Y', strtotime(str_replace('-','/',$res['created_at']))) ?></h4>
-                                </div>
+                        </div>
+                        <div class="row  col-sm-6">
+                            <h4 class="pull-left col-sm-6">Created at:</h4>
+                            <div class="col-sm-6">
+                                <h4  class="pull-left" style="color: black;"><?php echo date("F j, Y",strtotime(str_replace('-','/', $res['created_at'])))?></h4>
                             </div>
-
-                            <div class="row text-center" style="padding: 20px">
+                        </div>
+                        <div class="row col-sm-6 text-center" style="padding: 20px">
+                           <div class="col-sm-6">
                                 <a href="editProduct.php?id=<?php echo $res['id']; ?>"><button class="btn btn-warning">Edit</button></a>
-                                <a href="deleteProduct.php?id=<?php echo $res['id']; ?>"><button class="btn btn-danger">Delete</button></a>
                             </div>
-                        </div>
+                            <div class="col-sm-6">
+                                 <a href="deleteProduct.php?id=<?php echo $res['id']; ?>"><button class="btn btn-danger">Delete</button></a>
+                            </div>
+                        </div>                               
                     </div>
                 </div>
             </div>
