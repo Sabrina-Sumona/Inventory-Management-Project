@@ -12,7 +12,7 @@
     $sq= "SELECT * FROM users_info WHERE id='$id'";
     $thisUser= mysqli_fetch_assoc($conn->query($sq));
 
-    $sqa= "SELECT * FROM users_info WHERE id='1'";
+    $sqa= "SELECT * FROM users_info WHERE is_admin='1'";
     $admin= mysqli_fetch_assoc($conn->query($sqa));
 
     if(isset($_GET['id'])){
@@ -134,7 +134,7 @@
                 <p><h4><?php echo $thisUser['name'];  ?></h4> is working in HAPPY SHOP since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
             </div>
             <div class="card text-center">
-                <h2>Owners Info</h2>
+                <h2>Owner's Info</h2>
                 <div style="height:100px;"><img src="<?php echo $admin['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Owner"></div>
                 <p><h4><?php echo $admin['name'];  ?></h4> is the owner of HAPPY SHOP</p>
             </div>
