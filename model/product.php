@@ -6,10 +6,14 @@
     $currentPage = 'product.php';
     
     include "navigation.php";
-    include "../controller/connection.php";
-
     $m='';
     $conn=connect();
+
+    $sq= "SELECT * FROM users_info WHERE id='$userid'";
+    $thisUser= mysqli_fetch_assoc($conn->query($sq));
+
+    $sqa= "SELECT * FROM users_info WHERE id='1'";
+    $admin= mysqli_fetch_assoc($conn->query($sqa));
 
     if(isset($_POST['submit'])){
         $pName= $_POST['pname'];
@@ -189,20 +193,21 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="rightcolumn">
-                <div class="card">
-                    <h2>About Us</h2>
-                    <div class="fakeimg" style="height:100px;">Image</div>
-                    <p>Some texts about this inventory management software.</p>
-                </div>
-                <div class="card">
-                    <h2>Owners Info</h2>
-                    <p>Some text..</p>
-                </div>
+           <div class="rightcolumn">
+            <div class="card text-center" >
+                <h2>About User</h2>
+                <div style="height:100px;"><img src="<?php echo $thisUser['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
+                <p><h4><?php echo $thisUser['name'];  ?></h4> is working in HAPPY SHOP since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
+            </div>
+            <div class="card text-center">
+                <h2>Owners Info</h2>
+                <div style="height:100px;"><img src="<?php echo $admin['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
+                <p><h4><?php echo $admin['name'];  ?></h4> is the owner of HAPPY SHOP</p>
             </div>
         </div>
+        </div>
 
-        <?php include('footer.php')?> -->
+        <?php include('footer.php')?>
 
-</body>
+    </body>
 </html>

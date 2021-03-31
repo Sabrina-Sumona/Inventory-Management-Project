@@ -1,19 +1,18 @@
 <?php
-    // include('../controller/connection.php');
-    // $conn= connect();
-
+    include('../controller/connection.php');
+    $conn= connect();
     // session_start();
     $user= $_SESSION['user'];
     $userid= $_SESSION['userid'];
-    // if(!$_SESSION['userid']){
-    //     header("Location: login.php");
-    // }
-    // $sq= "SELECT * FROM users_info WHERE id='$userid'";
-    // $thisUser= mysqli_fetch_assoc($conn->query($sq));
+    if(!$_SESSION['userid']){
+        header("Location: login.php");
+    }
+    $sq= "SELECT * FROM users_info WHERE id='$userid'";
+    $thisUser= mysqli_fetch_assoc($conn->query($sq));
 
-    // $sql= "UPDATE users_info SET last_login_time=current_timestamp() WHERE id='$userid'";
-    // $conn->query($sql);
-    // $conn->close();
+    $sql= "UPDATE users_info SET last_login_time=current_timestamp() WHERE id='$userid'";
+    $conn->query($sql);
+    $conn->close();
 ?>
 
 

@@ -4,8 +4,14 @@
     $currentPage = 'product.php';
 
     include "navigation.php";
-    include "../controller/connection.php";
     $conn= connect();
+
+    $id= $_SESSION['userid'];
+    $sq= "SELECT * FROM users_info WHERE id='$id'";
+    $thisUser= mysqli_fetch_assoc($conn->query($sq));
+
+    $sqa= "SELECT * FROM users_info WHERE id='1'";
+    $admin= mysqli_fetch_assoc($conn->query($sqa));
 
    if(isset($_GET['id'])){
         $id= $_GET['id'];
@@ -119,6 +125,7 @@
                                     <div class="row">
                                         <div class="text-center">
                                             <input class="btn btn-danger" type="submit" name="Submit" value="Delete">
+                                        </div>
                                     </div>
                                 </div>
                         </form>                          
@@ -126,20 +133,21 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="col-sm-3">
-            <div class="card  text-center" >
+        <div class="rightcolumn">
+            <div class="card text-center" >
                 <h2>About User</h2>
                 <div style="height:100px;"><img src="<?php echo $thisUser['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
-                <p><h4><?php echo $thisUser['name'];  ?></h4> is working here since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
+                <p><h4><?php echo $thisUser['name'];  ?></h4> is working in HAPPY SHOP since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
             </div>
             <div class="card text-center">
                 <h2>Owners Info</h2>
-                <p>Some text..</p>
+                <div style="height:100px;"><img src="<?php echo $admin['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Owner"></div>
+                <p><h4><?php echo $admin['name'];  ?></h4> is the owner of HAPPY SHOP</p>
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <?php include('footer.php')?> -->
+    <?php include('footer.php')?>
 
     </body>
 </html>

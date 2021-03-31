@@ -4,12 +4,17 @@
     $userid= $_SESSION['userid'];
 
     $currentPage = 'dashboard.php';
-    include "../controller/connection.php";
     include "navigation.php";
     
     $date= date('Y-m-d', strtotime('-7 days'));
     $conn = connect();
     
+    $sq= "SELECT * FROM users_info WHERE id='$userid'";
+    $thisUser= mysqli_fetch_assoc($conn->query($sq));
+    
+    $sqa= "SELECT * FROM users_info WHERE id='1'";
+    $admin= mysqli_fetch_assoc($conn->query($sqa));
+
     $sql= "SELECT * from products WHERE updated_at>'$date'";
     $prod= $conn->query($sql);
 
@@ -37,7 +42,7 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="../css/product.css">
         <link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <title>Dashboard</title>
     </head>
@@ -108,20 +113,21 @@
             </div>
         </div>
     </div>
-    <!-- <div class="rightcolumn">
-        <div class="card  text-center" >
-            <h2>About User</h2>
-            <div style="height:100px;"><img src="<?php echo $thisUser['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
-            <p><h4><?php echo $thisUser['name'];  ?></h4> is working here since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
+    <div class="rightcolumn">
+            <div class="card text-center" >
+                <h2>About User</h2>
+                <div style="height:100px;"><img src="<?php echo $thisUser['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
+                <p><h4><?php echo $thisUser['name'];  ?></h4> is working in HAPPY SHOP since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
+            </div>
+            <div class="card text-center">
+                <h2>Owners Info</h2>
+                <div style="height:100px;"><img src="<?php echo $admin['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
+                <p><h4><?php echo $admin['name'];  ?></h4> is the owner of HAPPY SHOP</p>
+            </div>
         </div>
-        <div class="card text-center">
-            <h2>Owners Info</h2>
-            <p>Some text..</p>
-        </div>
-    </div> -->
 </div>
 
-<!-- <?php include('footer.php')?> -->
+<?php include('footer.php')?>
 
 </body>
 </html>

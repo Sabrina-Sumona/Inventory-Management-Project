@@ -12,7 +12,7 @@
         return $conn;
     }
 
-    // function closeConnect($cn){
-    //     $cn->close();
-    // }
+    function closeConnect($cn){
+        $cn->close();
+    }
 ?>
