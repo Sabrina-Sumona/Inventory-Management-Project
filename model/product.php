@@ -178,9 +178,10 @@
                                                     "<span class='glyphicon glyphicon-eye-open'></span> </a>";
                                                 echo "<a href='editProduct.php?id=".$row['id']."' class='btn btn-warning btn-sm'>".
                                                     "<span class='glyphicon glyphicon-pencil'></span> </a>";
+                                                if($thisUser['is_admin']==1) {
                                                 echo "<a href='deleteProduct.php?id=".$row['id']."' class='btn btn-danger btn-sm'>".
                                                     "<span class='glyphicon glyphicon-trash'></span> </a></td>";
-
+                                                }
                                             }
                                         } else{
                                             echo "No results found!";

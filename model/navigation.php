@@ -35,7 +35,11 @@
                     <li><a class="<?php if($currentPage =='dashboard.php'){echo 'active';}?>" href="dashboard.php">MyInventory</a></li>
                     <li><a class="<?php if($currentPage =='product.php'){echo 'active';}?>" href="product.php">Products</a></li>
                     <li><a class="<?php if($currentPage =='user.php'){echo 'active';}?>" href="user.php">Users</a></li>
-                    <li><a class="<?php if($currentPage =='customer.php'){echo 'active';}?>" href="customer.php">Customers</a></li>
+                    <?php
+                    if($thisUser['is_admin']==1){
+                        echo "<li><a class='<?php if($currentPage =='customer.php'){echo 'active';}?>' href='customer.php'>Customers</a></li>";
+                    }
+                    ?>
                     <li style="float: right;"><a href="logout.php" style="padding: 0px 20px 0px 0px;"><button class="btn btn-danger navbar-btn pull-right">Logout</button></a></li>
                     <li class="pull-right"><a href="#">Logged in as <b class="user"><?php echo $user; ?></b></a></li>
 

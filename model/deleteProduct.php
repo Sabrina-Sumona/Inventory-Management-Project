@@ -37,6 +37,10 @@
     $sql= "SELECT SUM(sold) as total_sell from products";
     $total_sell= mysqli_fetch_assoc($conn->query($sql));
 
+    if($thisUser['is_admin']!=1){
+        header("Location: product.php");
+    }
+
 ?>
 <html>
     <head>
