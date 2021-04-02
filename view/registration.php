@@ -44,8 +44,8 @@
     <!-- The information sent from an HTML form using the GET method is visible to everyone in the browser's address bar, which means that all the variable names and their values will be displayed in the URL. Therefore, the get method is not secured to send sensitive information. -->
     <!-- Similar to the GET method, the POST method is also used to submit the HTML form data. But the data submitted by this method is collected by the predefined superglobal variable $_POST instead of $_GET. -->
     <!-- Unlike the GET method, it does not have a limit on the amount of information to be sent. The information sent from an HTML form using the POST method is not visible to anyone. -->
-        <form method="POST" action="registration.php" enctype="multipart/form-data"
-            <div class="container">
+        <form method="POST" action="registration.php" enctype="multipart/form-data">
+            <div class="container reg">
                 <!-- message -->
                 <span>
                     <?php 
@@ -93,3 +93,9 @@
         </form>
     </body>
 </html>
+
+<script>
+    window.onload= function(){
+          document.getElementsByClassName('reg')[0].style.color='whitesmoke';
+    };
+</script>

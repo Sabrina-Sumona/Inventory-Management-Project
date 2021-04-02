@@ -37,7 +37,11 @@
                     <li><a class="<?php if($currentPage =='user.php'){echo 'active';}?>" href="user.php">Users</a></li>
                     <?php
                     if($thisUser['is_admin']==1){
-                        echo "<li><a class='<?php if($currentPage =='customer.php'){echo 'active';}?>' href='customer.php'>Customers</a></li>";
+                        if($currentPage =='customer.php'){
+                                 echo '<li><a class= "active" href="customer.php">Customers</a></li>';
+                            }else{
+                                echo '<li><a href="customer.php">Customers</a></li>';
+                            }
                     }
                     ?>
                     <li style="float: right;"><a href="logout.php" style="padding: 0px 20px 0px 0px;"><button class="btn btn-danger navbar-btn pull-right">Logout</button></a></li>

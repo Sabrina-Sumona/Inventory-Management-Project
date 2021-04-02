@@ -9,7 +9,7 @@ body{
     position: relative;
     margin: auto;
     background: #31B0D5;
-    color: whitesmoke;
+    /* color: whitesmoke; */
     border-radius: 3px;
     opacity: 90%;
 }
