@@ -6,8 +6,12 @@
     $conn= connect();
     $m= '';
     if(isset($_POST['submit'])){
-        $uname= $_POST['uname'];
-        $pass= $_POST['password'];
+        // $uname= $_POST['uname'];
+        // $pass= $_POST['password'];
+
+        // to prevent SQL injection by checking the input
+        $uname= mysqli_real_escape_string($conn, $_POST['uname']);
+        $pass= mysqli_real_escape_string($conn, $_POST['pass']);
         // $sql= "SELECT * FROM users_info WHERE u_name='$uname' and password='$pass'";
         // $res= $conn->query($sql);
 
@@ -25,6 +29,12 @@
         $pass= md5($pass);
 
         $sql= "SELECT * FROM users_info WHERE u_name='$uname' and password='$pass'";
+        
+        // SQL imjection
+        // if someone insert this into the user name space: '; DROP TABLE users_info;--
+        // it will become like this: 
+        // $sql= "SELECT * FROM users_info WHERE u_name=''; DROP TABLE users_info;--' and password='$pass'";
+        // for that the users_info table will be deleted!!!
         $res= $conn->query($sql);
 
         if(mysqli_num_rows($res)==1){

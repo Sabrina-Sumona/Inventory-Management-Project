@@ -5,7 +5,7 @@
     $user= $_SESSION['user'];
     $userid= $_SESSION['userid'];
     if(!$_SESSION['userid']){
-        header("Location: login.php");
+        header("Location: ../view/login.php");
     }
     $sq= "SELECT * FROM users_info WHERE id='$userid'";
     $thisUser= mysqli_fetch_assoc($conn->query($sq));
