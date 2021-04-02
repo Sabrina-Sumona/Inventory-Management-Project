@@ -16,10 +16,17 @@
     $admin= mysqli_fetch_assoc($conn->query($sqa));
 
     if(isset($_POST['submit'])){
-        if($thisUser['password']==$_POST['pass']){
+        // if($thisUser['password']==$_POST['pass']){
+        //     $sq= "UPDATE users_info SET ";
+        //     if(isset($_POST['uname'])){
+        //         $uName= $_POST['uname'];
+        $uname= mysqli_real_escape_string($conn, $_POST['uname']);
+        $pass= mysqli_real_escape_string($conn, $_POST['pass']);
+        $pass= md5($pass);
+        if($thisUser['password']==$pass){
             $sq= "UPDATE users_info SET ";
-            if(isset($_POST['uname'])){
-                $uName= $_POST['uname'];
+            if(isset($uname)){
+                $uName= $uname;
                 if($uName!= $thisUser['name']){
                     $sq .= "name = '$uName',";
                 }

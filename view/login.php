@@ -11,7 +11,7 @@
 
         // to prevent SQL injection by checking the input
         $uname= mysqli_real_escape_string($conn, $_POST['uname']);
-        $pass= mysqli_real_escape_string($conn, $_POST['pass']);
+        $pass= mysqli_real_escape_string($conn, $_POST['password']);
         // $sql= "SELECT * FROM users_info WHERE u_name='$uname' and password='$pass'";
         // $res= $conn->query($sql);
 
