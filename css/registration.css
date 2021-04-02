@@ -9,9 +9,10 @@ body{
     position: relative;
     margin: auto;
     background: #31B0D5;
-    /* color: whitesmoke; */
     border-radius: 3px;
     opacity: 90%;
+    /* all: unset; */
+    /* color: red; */
 }
 /* Full-width input fields */
 input[type=text], input[type=password] {

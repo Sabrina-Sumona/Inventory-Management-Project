@@ -61,15 +61,19 @@
                 </div>
                 <div>
                     <label for="uname">Your Username<span>*</span></label>
-                    <input name="uname" id="uname" type="text" placeholder="Enter Your Username" required>
+                    <input name="uname" id="uname" type="text" placeholder="Enter Your Username" onchange="checkUsername(this.value); checkUser(this.value);" required>
+                    <small id="checktext"></small>
+                    <small id="checkuser"></small>
                 </div>
                 <div>
                     <label for="email">Your Email</label>
-                    <input name="email" id="email" type="text" placeholder="Enter Your Email">
+                    <input name="email" id="email" type="text" placeholder="Enter Your Email" onchange="checkUsermail(this.value);">
+                    <small id="checkmail"></small>
                 </div>
                 <div>   
                     <label for="password">Password<span>*</span></label>
-                    <input name="password" id="password" type="password" placeholder="Enter A Password" required>
+                    <input name="password" id="password" type="password" placeholder="Enter A Password" onchange="checkUserpass(this.value);" required>
+                    <small id="checkpass"></small>
                  </div>
                  <div>
                      <label for="rpassword">Password Confirmation<span>*</span></label>
@@ -92,10 +96,21 @@
             </div>
         </form>
     </body>
+    <script type="text/javascript" src="../js/script.js"></script>
 </html>
 
 <script>
     window.onload= function(){
           document.getElementsByClassName('reg')[0].style.color='whitesmoke';
     };
+</script>
+<script>
+    // using jquery
+    $(document).ready(function(){
+        $('.reg').css('color', 'whitesmoke');
+        // document.getElementsByClassName('reg')[0].style.color='whitesmoke';
+    });
+    /*window.onload= function(){
+          document.getElementsByClassName('reg')[0].style.color='whitesmoke';
+    };*/
 </script>
