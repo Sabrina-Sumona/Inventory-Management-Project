@@ -14,6 +14,13 @@
        $rPass= $_POST['rpassword'];
        // === checks both value & type of both sides matches or not
        if($pass===$rPass){
+            // // PASSWORD_DEFAULT is one kind of hashing method, there are several methods like this in hashing
+            // $pass= password_hash($pass, PASSWORD_DEFAULT);
+
+           // md5 is one kind of encryption method
+           $pass= md5($pass);
+           // difference btwn encrytion & hashing: different hashed value can be generated from a password but we can regain it
+           // where one password always encrypted into same but regain it is very difficult
            $sq= "INSERT INTO users_info(name, u_name, email, password) VALUES('$name', '$uname', '$email','$pass')";
            if($conn->query($sq)===true){
                header('Location: login.php');

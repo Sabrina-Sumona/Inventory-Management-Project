@@ -8,6 +8,22 @@
     if(isset($_POST['submit'])){
         $uname= $_POST['uname'];
         $pass= $_POST['password'];
+        // $sql= "SELECT * FROM users_info WHERE u_name='$uname' and password='$pass'";
+        // $res= $conn->query($sql);
+
+        // if(mysqli_num_rows($res)==1){
+        //     $user= mysqli_fetch_assoc($res);
+
+        // $sql= "SELECT * FROM users_info WHERE u_name='$uname'";
+        // $res= mysqli_fetch_assoc($conn->query($sql));
+
+        // // password_verify is used to check the hashed password
+        // if($res && password_verify($pass, $res['password'])){
+        //     $user= $res;
+
+        // encryption to match with the db password
+        $pass= md5($pass);
+
         $sql= "SELECT * FROM users_info WHERE u_name='$uname' and password='$pass'";
         $res= $conn->query($sql);
 
