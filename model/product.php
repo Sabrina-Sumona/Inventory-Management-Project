@@ -1,19 +1,11 @@
 <?php
     session_start();
-    $user= $_SESSION['user'];
-    $userid= $_SESSION['userid'];
 
     $currentPage = 'product.php';
     
     include "navigation.php";
     $m='';
     $conn=connect();
-
-    $sq= "SELECT * FROM users_info WHERE id='$userid'";
-    $thisUser= mysqli_fetch_assoc($conn->query($sq));
-
-    $sqa= "SELECT * FROM users_info WHERE is_admin='1'";
-    $admin= mysqli_fetch_assoc($conn->query($sqa));
 
     if(isset($_POST['submit'])){
         $pName= $_POST['pname'];
@@ -36,18 +28,8 @@
         }
 
     }
-
     $sql= "SELECT * from products";
     $res= $conn->query($sql);
-
-    $sql= "SELECT COUNT(id) as total_products from products";
-    $total_product= mysqli_fetch_assoc($conn->query($sql));
-
-    $sql= "SELECT SUM(bought) as total_buy from products";
-    $total_buy= mysqli_fetch_assoc($conn->query($sql));
-
-    $sql= "SELECT SUM(sold) as total_sell from products";
-    $total_sell= mysqli_fetch_assoc($conn->query($sql));
 ?>
 
 <html>
@@ -68,34 +50,7 @@
     <body>
         <div class="row" style="padding: 50px;">
             <div class="leftcolumn">
-                <div class="row">
-                    <section style="padding-left: 20px; padding-right: 20px;">
-                        <div class="col-sm-3">
-                            <div class="card card-green">
-                                <h3>Total<br>Products</h3>
-                                <h2 style="color: #282828; text-align: center;"><?php echo $total_product?$total_product['total_products']: 'No Products available in stock'; ?></h2>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card card-yellow" >
-                                <h3>Products<br>Bought</h3>
-                                <h2 style="color: #282828; text-align: center;"><?php echo $total_buy?$total_buy['total_buy']: 'You haven\'t bought anything yet'; ?></h2>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 " >
-                            <div class="card card-blue" >
-                                <h3>Products<br>Sold</h3>
-                                <h2 style="color: #282828; text-align: center;"><?php echo $total_sell?$total_sell['total_sell']: 'You haven\'t sold anything yet'; ?></h2>
-                            </div>
-                        </div>
-                        <div class="col-sm-3" >
-                            <div class="card card-red" >
-                                <h3>Available<br>Stock</h3>
-                                <h2 style="color: #282828; text-align: center;"><?php echo $total_buy?$total_buy['total_buy']-$total_sell['total_sell']: 'You haven\'t invested anything yet'; ?></h2>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                <?php include('product_cards.php')?>
                 <div class="card">
                     <div class="text-center">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProduct">
@@ -106,7 +61,6 @@
                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-
                                         <button style="background-color: white;" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -194,21 +148,8 @@
                     </div>
                 </div>
             </div>
-           <div class="rightcolumn">
-            <div class="card text-center" >
-                <h2>About User</h2>
-                <div style="height:100px;"><img src="<?php echo $thisUser['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
-                <p><h4><?php echo $thisUser['name'];  ?></h4> is working in HAPPY SHOP since <h4><?php echo date('F j, Y', strtotime($thisUser['created_at'])); ?></h4></p>
-            </div>
-            <div class="card text-center">
-                <h2>Owner's Info</h2>
-                <div style="height:100px;"><img src="<?php echo $admin['avatar']; ?>" height="100px;" width="100px;" class="img-circle" alt="Please Select your avatar"></div>
-                <p><h4><?php echo $admin['name'];  ?></h4> is the owner of HAPPY SHOP</p>
-            </div>
+           <?php include('side_info.php')?>
         </div>
-        </div>
-
         <?php include('footer.php')?>
-
     </body>
 </html>
