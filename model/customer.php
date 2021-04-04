@@ -37,9 +37,8 @@
                                 <tr>
                                     <th data-field="date" data-filter-control="select" data-sortable="true">Customer</th>
                                     <th data-field="note" data-filter-control="select" data-sortable="true">Type</th>
-                                    <th data-field="date" data-filter-control="select" data-sortable="true">Current Orders</th>
-                                    <th data-field="examen" data-filter-control="select" data-sortable="true">Shipping Address</th>
                                     <th data-field="examen" data-filter-control="select" data-sortable="true">Email</th>
+                                    <th data-field="note" data-sortable="true">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,9 +48,9 @@
                                         echo '<tr>';
                                         echo '<td>'. $row['name'].'</td>';
                                         echo '<td>'. $row['type'].'</td>';
-                                        echo '<td>'. $row['current_orders'].'</td>';
-                                        echo '<td>'. $row['shipping_address'].'</td>';
                                         echo '<td>'. $row['email'].'</td>';
+                                        echo "<td><a href='viewCustomer.php?id=".$row['id']."' class='btn btn-success btn-sm'>".
+                                                    "<span class='glyphicon glyphicon-eye-open'></span> </a>";
                                         echo '</tr>';
                                         }
                                     }

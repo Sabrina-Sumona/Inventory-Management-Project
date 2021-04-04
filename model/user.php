@@ -187,6 +187,7 @@
                                         <?php
                                             if($thisUser['is_admin']==1){
                                                 echo '<th data-field="note" data-sortable="true">Last Login Time</th>';
+                                                echo '<th data-field="note" data-sortable="true">Action</th>';
                                             }
                                         ?>
                                     </tr>
@@ -207,8 +208,10 @@
                                             echo '<td>' . $active . '</td>';
                                             if($thisUser['is_admin']==1) {
                                                 echo '<td>'. date("Y-m-d h:i:sa",strtotime($row['last_login_time'])).'</td>';
-                                                echo '</tr>';
+                                                echo "<td><a href='viewUser.php?id=".$row['id']."' class='btn btn-success btn-sm'>".
+                                                    "<span class='glyphicon glyphicon-eye-open'></span> </a>";
                                             }
+                                            echo '</tr>';
                                         }
                                     }
                                     ?>

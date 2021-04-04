@@ -136,6 +136,7 @@
                                                 echo "<a href='deleteProduct.php?id=".$row['id']."' class='btn btn-danger btn-sm'>".
                                                     "<span class='glyphicon glyphicon-trash'></span> </a></td>";
                                                 }
+                                                echo "<tr>";  
                                             }
                                         } else{
                                             echo "No results found!";
