@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 04, 2021 at 07:04 PM
+-- Generation Time: Apr 10, 2021 at 08:10 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -71,16 +71,16 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `bought`, `sold`, `image`, `created_at`, `updated_at`) VALUES
-(12, 'AloeVera Gel', 56, 14, 'Uploads/aloe-removebg-preview.png', '2021-03-30 13:30:22', '2021-03-30 13:30:22'),
+(12, 'AloeVera Gel', 56, 14, 'Uploads/aloe-removebg-preview.png', '2021-03-30 13:30:22', '2021-04-10 17:32:22'),
 (14, 'Shampoo', 100, 37, 'Uploads/shampoo-removebg-preview.png', '2021-03-27 23:13:25', '2021-03-27 23:13:25'),
-(19, 'Honey', 40, 4, 'Uploads/honey-removebg-preview.png', '2021-03-30 13:33:28', '2021-03-30 13:33:28'),
+(19, 'Honey', 40, 4, 'Uploads/honey-removebg-preview.png', '2021-03-30 13:33:28', '2021-04-09 15:33:28'),
 (20, 'Moisturizer', 100, 34, 'Uploads/cream-removebg-preview.png', '2021-03-30 13:34:01', '2021-03-30 13:34:01'),
 (22, 'Hand Wash', 500, 122, 'Uploads/hand-removebg-preview.png', '2021-03-30 13:34:45', '2021-03-30 13:34:45'),
 (23, 'Milk Powder', 40, 5, 'Uploads/milk-removebg-preview.png', '2021-03-30 13:35:07', '2021-03-30 13:35:07'),
 (24, 'Soap Bar', 700, 204, 'Uploads/soap-removebg-preview.png', '2021-03-30 13:38:01', '2021-03-30 13:38:01'),
 (28, 'Tooth Paste', 130, 35, 'Uploads/toothpaste-removebg-preview.png', '2021-03-30 15:16:45', '2021-03-30 15:16:45'),
 (30, 'Sunscreen', 56, 11, 'Uploads/sun-removebg-preview.png', '2021-03-31 01:32:14', '2021-03-31 01:32:14'),
-(31, 'Green Tea', 130, 45, 'Uploads/green-removebg-preview.png', '2021-03-31 01:43:42', '2021-03-31 01:43:42'),
+(31, 'Green Tea', 130, 45, 'Uploads/green-removebg-preview.png', '2021-03-31 01:43:42', '2021-04-08 11:43:42'),
 (32, 'Glucose', 234, 43, 'Uploads/glucose-removebg-preview.png', '2021-03-31 01:45:21', '2021-03-31 01:45:21'),
 (33, 'Body Lotion', 58, 0, 'Uploads/body-removebg-preview.png', '2021-04-04 23:08:38', '2021-04-04 23:08:38');
 
@@ -110,9 +110,9 @@ CREATE TABLE IF NOT EXISTS `users_info` (
 --
 
 INSERT INTO `users_info` (`id`, `name`, `u_name`, `email`, `password`, `is_active`, `is_admin`, `avatar`, `last_login_time`, `created_at`) VALUES
-(12, 'Sabrina', 'sabrina', 'sabrina@gmail.com', '15bd83e66431ee8037e022ab97315515', 1, 1, 'Users/sabrina.jpg', '2021-04-04 19:03:43', '2021-04-02 21:31:26'),
+(12, 'Sabrina', 'sabrina', 'sabrina@gmail.com', '15bd83e66431ee8037e022ab97315515', 1, 1, 'Users/sabrina.jpg', '2021-04-10 19:05:04', '2021-04-02 21:31:26'),
 (13, 'Naorin', 'naorin', 'naorin@gmail.com', '98708d61c5bce184f2a9314da996d581', 1, 0, 'Users/naorin.jpg', '2021-04-04 19:02:56', '2021-04-02 21:49:28'),
-(14, 'Sumona', 'sumona', 'sumona@gmail.com', 'd157b8e849c75333fa9c996f86e0f304', 1, 0, 'Users/sum0na.jpg', '2021-04-04 19:02:36', '2021-04-02 21:51:42');
+(14, 'Sumona', 'sumona', 'sumona@gmail.com', 'd157b8e849c75333fa9c996f86e0f304', 1, 0, 'Users/sum0na.jpg', '2021-04-10 18:57:32', '2021-04-02 21:51:42');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

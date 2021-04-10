@@ -89,7 +89,6 @@
                                                 <input class="btn btn-danger" type="submit" name="Submit" value="Delete">
                                             </div>
                                         </div>
-                                    </div>
                                 </form>                          
                             </div>
                         </div>
